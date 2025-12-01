@@ -1,6 +1,6 @@
 <script setup>
 import appHeader from '@/components/appHeader.vue';
-import Cart from '@/components/cart/Cart.vue';
+import ECommerce from '@/components/eCommerce/ECommerce.vue';
 import appFooter from '@/components/appFooter.vue';
 import '@/main.css';
 </script>
@@ -16,7 +16,7 @@ import '@/main.css';
     <appHeader/>
 
     <!-- Main content -->
-    <Cart/>
+    <ECommerce/>
 
     <!-- Footer -->
     <appFooter/>
