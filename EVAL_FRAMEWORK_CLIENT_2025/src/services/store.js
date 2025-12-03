@@ -1,9 +1,13 @@
 import { DB } from './DB.js';
-import { reactive} from "vue";
+import { ref, reactive, computed } from "vue";
 
 export const store = reactive({
     products: reactive([]),
     cartItems: reactive([]),
+    shippingCost: ref(0),
+    subTotal: computed(()=>{return Number((store.cartItems.reduce((sum, item)=> sum + (Number(item.price)*item.quantity), 0)).toFixed(2))}),
+    VATTotal: computed(()=>{return Number((store.subTotal*0.21).toFixed(2))}),
+    total: computed(()=>{return Number((store.subTotal + store.VATTotal + store.shippingCost).toFixed(2))}),
     async setup(url){
         DB.setapiURL(url);
         store.products = await store.findAll('products');
@@ -20,7 +24,6 @@ export const store = reactive({
     },
     async deleteOneById(id){
         DB.deleteOneById(id);
-        //const index = store.cartItems.findIndex((todo)=>todo.id == id);
         store.cartItems.splice(store.findProductIndex(id), 1);
     },
     async updateOneById(id){
