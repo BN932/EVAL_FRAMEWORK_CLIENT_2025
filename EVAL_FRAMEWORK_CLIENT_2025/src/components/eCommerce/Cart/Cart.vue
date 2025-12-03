@@ -1,6 +1,7 @@
 <script setup>
 import CartInfo from './CartInfo.vue';
 import OneCartItem from './OneCartItem.vue';
+import { store } from '@/services/store.js';
 
 </script>
 <template>
@@ -9,7 +10,7 @@ import OneCartItem from './OneCartItem.vue';
         <div class="cart bg-white rounded-lg shadow animate__animated">
           <ul class="divide-y divide-gray-200 space-y-4 p-6"/>
             <!--Cart item-->
-            <OneCartItem/>
+            <OneCartItem v-for="item in store.cartItems" :item=item />
             <!-- Repeat for other cart items -->
             <CartInfo/>
         </div>

@@ -16,7 +16,7 @@ import '@/main.css';
     <appHeader/>
 
     <!-- Main content -->
-    <ECommerce/>
+    <ECommerce apiURL="https://68ad9558a0b85b2f2cf3e221.mockapi.io/"/>
 
     <!-- Footer -->
     <appFooter/>
