@@ -17,7 +17,7 @@ export const DB = reactive({
     async deleteOneById(id){
         const response = await fetch(DB.url + "cart-items/" + id, {method: 'DELETE'});
     },
-    async updateOneById(data){
-        const response = await fetch(DB.url + "cart-items/" + data.id, {method: 'PUT', headers: { "Content-Type": "application/json" }, body: JSON.stringify({name: product.name, price: product.price, quantity: data.quantity})});
+    async updateOneById(product){
+        const response = await fetch(DB.url + "cart-items/" + product.id, {method: 'PUT', headers: { "Content-Type": "application/json" }, body: JSON.stringify({name: product.name, price: product.price, quantity: product.quantity})});
     },
 });

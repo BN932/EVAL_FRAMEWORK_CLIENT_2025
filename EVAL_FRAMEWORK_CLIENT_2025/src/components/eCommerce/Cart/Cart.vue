@@ -11,7 +11,8 @@ import { store } from '@/services/store.js';
           <ul class="divide-y divide-gray-200 space-y-4 p-6"/>
             <!--Cart item-->
             <OneCartItem v-for="item in store.cartItems" :item=item 
-            @removeItem="store.deleteOneById"/>
+            @removeOneItem="store.deleteOneById"
+            @addOneItem="store.updateOneById"/>
             <!-- Repeat for other cart items -->
             <CartInfo/>
         </div>

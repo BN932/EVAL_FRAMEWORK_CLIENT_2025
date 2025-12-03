@@ -23,10 +23,9 @@ export const store = reactive({
         //const index = store.cartItems.findIndex((todo)=>todo.id == id);
         store.cartItems.splice(store.findProductIndex(id), 1);
     },
-    async updateOneById(data){
-        DB.updateOneById(data);
-        //const index = store.cartItems.findIndex((todo)=>todo.id == data.id);
-        store.cartItems[store.findIndex(data.id)].content = data.content;
+    async updateOneById(id){
+        const product = store.cartItems[store.findProductIndex(id)];
+        DB.updateOneById(product);
     },
     findProductIndex(id){
         const index = store.products.findIndex((product)=>product.id == id);
