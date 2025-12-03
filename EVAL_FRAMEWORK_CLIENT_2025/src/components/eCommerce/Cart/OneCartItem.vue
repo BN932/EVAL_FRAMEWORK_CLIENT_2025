@@ -7,7 +7,7 @@
     <li class="flex justify-between items-center py-3">
               <div class="flex items-center">
                 <img
-                  src="https://picsum.photos/300/200/?random=1"
+                  src="https://picsum.photos/300/200/?random={{ item.id }}"
                   alt="Product"
                   class="h-12 w-12 rounded-full mr-4"
                 />
@@ -22,8 +22,9 @@
                   type="number"
                   class="form-input mt-1 block w-16 text-center rounded text-gray-700 border-gray-300 border"
                   value="{{ item.quantity }}"
-                  min="0"
+                  min="1"
                   v-model="item.quantity"
+                  @change="console.log(item.quantity)"
                 />
                 <!--Remove-from-cart button-->
                 <button class="ml-2 text-red-500 hover:text-red-700">

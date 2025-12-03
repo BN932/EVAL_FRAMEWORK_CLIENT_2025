@@ -10,7 +10,8 @@ import { store } from '@/services/store.js';
         <div class="cart bg-white rounded-lg shadow animate__animated">
           <ul class="divide-y divide-gray-200 space-y-4 p-6"/>
             <!--Cart item-->
-            <OneCartItem v-for="item in store.cartItems" :item=item />
+            <OneCartItem v-for="item in store.cartItems" :item=item 
+            @removeItem="store.deleteOneById"/>
             <!-- Repeat for other cart items -->
             <CartInfo/>
         </div>

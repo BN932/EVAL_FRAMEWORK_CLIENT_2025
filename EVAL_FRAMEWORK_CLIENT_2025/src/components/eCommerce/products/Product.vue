@@ -6,7 +6,7 @@
 <template>
     <article class="bg-white rounded-lg overflow-hidden shadow-md">
             <img
-              src="https://picsum.photos/300/200/?random=1"
+              src="https://picsum.photos/300/200/?random={{ product.id }}"
               alt="Product image"
               class="w-full"
             />
