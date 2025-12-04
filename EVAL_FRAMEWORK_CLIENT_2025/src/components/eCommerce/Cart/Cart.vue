@@ -16,8 +16,8 @@ onMounted (() => {
             <!--Cart item-->
             <OneCartItem v-for="item in storeShoppingCart.cartItems" :item=item :key="item.id"
             @removeOneItem="storeShoppingCart.deleteOneById"/>
-            <!-- Repeat for other cart items -->
-            <CartInfo/>
+            <div class="bg-gray-50"><CartInfo/></div>
+            
         </div>
       </aside>
 </template>

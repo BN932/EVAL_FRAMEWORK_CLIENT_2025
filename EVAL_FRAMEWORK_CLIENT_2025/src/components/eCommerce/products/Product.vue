@@ -1,5 +1,5 @@
 <script setup>
-    import AddToCartBtn from './AddToCartBtn.vue';
+    import AddToCartBtn from '../../ui/ActionButton.vue';
     const props = defineProps({
         product: Object,
     })
@@ -14,7 +14,8 @@
             <div class="p-4">
               <h2 class="font-bold text-lg mb-2">{{ product.name }}</h2>
               <p class="text-gray-700">€{{ product.price }}</p>
-              <addToCartBtn :id="Number(product.id)" @addOne="$emit('addOneItemToCart', $event)"/>
+              <addToCartBtn :id="Number(product.id)" :action="addOne" @addOne="$emit('addOneItemToCart', $event)">
+                <slot name="actionButton">Ajouter</slot></addToCartBtn>
             </div>
           </article>
 </template>

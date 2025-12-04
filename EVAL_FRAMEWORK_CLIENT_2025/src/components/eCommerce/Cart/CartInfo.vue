@@ -2,8 +2,7 @@
   import { storeShoppingCart } from '@/services/storeShoppingCart.js';
 </script>
 <template>
-    <div class="bg-gray-50">
-            <div class="p-6">
+  <div class="p-6">
                 <!--SubTotal-->
               <div class="flex justify-between mb-1">
                 <span><strong>Total HTVA:</strong></span>
@@ -18,9 +17,10 @@
               <div class="flex justify-between items-center my-8">
                 <span><strong>Livraison:</strong></span>
                 <select class="form-select py-1 px-2 block w-full rounded border border-gray-300 ml-2"
-                v-model.number="storeShoppingCart.shippingCost"
+                v-model.number="storeShoppingCart.deliveryCost"
                 >
-                  <option value="5">Standard - €5</option>
+                  <option value="0" disabled>Choisissez une option de livraison</option>
+                  <option value="5" >Standard - €5</option>
                   <option value="15">Express - €15</option>
                 </select>
               </div>
@@ -34,7 +34,6 @@
               >
                 Procéder au paiement
               </button>
-            </div>
-          </div>
+  </div>
 </template>
 <style scoped></style>
