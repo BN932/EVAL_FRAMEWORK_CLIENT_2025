@@ -24,12 +24,11 @@
                   value="{{ item.quantity }}"
                   min="1"
                   v-model="item.quantity"
-                  @change="$emit('addOneItem', item.id)"
                 />
                 <!--Remove-from-cart button-->
                 <button class="ml-2 text-red-500 hover:text-red-700">
                   <i class="fas fa-times"
-                  @click="$emit('removeOneItem', item.id)"></i>
+                  @click="$emit('removeOneItem', Number(item.id))"></i>
                 </button>
               </div>
             </li>

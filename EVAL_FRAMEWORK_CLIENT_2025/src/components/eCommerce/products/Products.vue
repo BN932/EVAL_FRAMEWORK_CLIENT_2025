@@ -1,12 +1,13 @@
 <script setup>
   import { onMounted } from "vue";
   import Product from './Product.vue';
-  import { store } from '@/services/store.js';
+  import { storeProducts } from '@/services/storeProducts.js';
+import { storeShoppingCart } from "@/services/storeShoppingCart";
   const props = defineProps({
     apiURL: {type: String, required: true},
     })
     onMounted (async () => {
-        store.setup(props.apiURL);
+        storeProducts.setup(props.apiURL);
     });
 </script>
 <template>
@@ -14,9 +15,9 @@
         <h1 class="text-3xl font-bold mb-4">Nouveaux produits</h1>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <!-- Product card example -->
-          <product v-for="product in store.products" 
+          <product v-for="product in storeProducts.products" 
           :product=product
-          @addItemToCart="store.addOne" />
+          @addOneItemToCart="storeShoppingCart.addOneById" />
 
           <!-- Repeat for other products -->
         </div>

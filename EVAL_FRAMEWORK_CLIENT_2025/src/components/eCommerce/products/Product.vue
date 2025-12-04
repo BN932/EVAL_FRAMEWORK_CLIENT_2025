@@ -1,4 +1,5 @@
 <script setup>
+    import AddToCartBtn from './AddToCartBtn.vue';
     const props = defineProps({
         product: Object,
     })
@@ -13,12 +14,7 @@
             <div class="p-4">
               <h2 class="font-bold text-lg mb-2">{{ product.name }}</h2>
               <p class="text-gray-700">€{{ product.price }}</p>
-              <button
-                class="mt-4 w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                @click="$emit('addItemToCart', product.id)"
-              >
-                Ajouter
-              </button>
+              <addToCartBtn :id="Number(product.id)" @addOne="$emit('addOneItemToCart', $event)"/>
             </div>
           </article>
 </template>

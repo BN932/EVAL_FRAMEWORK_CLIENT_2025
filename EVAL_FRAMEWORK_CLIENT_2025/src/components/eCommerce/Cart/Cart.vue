@@ -1,7 +1,11 @@
 <script setup>
+import { onMounted } from "vue";
 import CartInfo from './CartInfo.vue';
 import OneCartItem from './OneCartItem.vue';
-import { store } from '@/services/store.js';
+import { storeShoppingCart } from '@/services/storeShoppingCart.js';
+onMounted (() => {
+        storeShoppingCart.setup();
+    });
 
 </script>
 <template>
@@ -10,9 +14,8 @@ import { store } from '@/services/store.js';
         <div class="cart bg-white rounded-lg shadow animate__animated">
           <ul class="divide-y divide-gray-200 space-y-4 p-6"/>
             <!--Cart item-->
-            <OneCartItem v-for="item in store.cartItems" :item=item 
-            @removeOneItem="store.deleteOneById"
-            @addOneItem="store.updateOneById"/>
+            <OneCartItem v-for="item in storeShoppingCart.cartItems" :item=item :key="item.id"
+            @removeOneItem="storeShoppingCart.deleteOneById"/>
             <!-- Repeat for other cart items -->
             <CartInfo/>
         </div>

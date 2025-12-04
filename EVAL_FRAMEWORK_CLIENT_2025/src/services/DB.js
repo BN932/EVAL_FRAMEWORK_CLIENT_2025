@@ -5,19 +5,8 @@ export const DB = reactive({
         DB.url = data;
     },
 
-    async findAll(endpoint) {
-        const response = await fetch(DB.url + endpoint);
+    async findAll() {
+        const response = await fetch(DB.url + 'products');
         return response.json();
-    },
-    async addOne(product) {
-        const response = await fetch(DB.url + "cart-items", {method: 'POST', headers: { "Content-Type": "application/json" }, body: JSON.stringify({name: product.name, price: product.price, quantity: 1 }),})
-        const newItem = await response.json();
-        return newItem;
-    },
-    async deleteOneById(id){
-        const response = await fetch(DB.url + "cart-items/" + id, {method: 'DELETE'});
-    },
-    async updateOneById(product){
-        const response = await fetch(DB.url + "cart-items/" + product.id, {method: 'PUT', headers: { "Content-Type": "application/json" }, body: JSON.stringify({name: product.name, price: product.price, quantity: product.quantity})});
     },
 });
