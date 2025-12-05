@@ -3,11 +3,12 @@
     const props = defineProps({
         product: Object,
     })
+    const imgUrl = 'https://picsum.photos/300/200/?random='+ props.product.id;
 </script>
 <template>
     <article class="bg-white rounded-lg overflow-hidden shadow-md">
             <img
-              src="https://picsum.photos/300/200/?random={{ product.id }}"
+              :src="imgUrl"
               alt="Product image"
               class="w-full"
             />

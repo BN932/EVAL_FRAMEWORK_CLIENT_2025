@@ -17,10 +17,10 @@ export const storeShoppingCart = reactive({
         },
     //-----------CRUD methods
     async addOneById(id){
-        if (storeShoppingCart.cartItems.find(item => item.id==id)){       
+        if (storeShoppingCart.cartItems.find((item) => item.id==id)){       
             storeShoppingCart.cartItems[storeShoppingCart.findProductIndex(id, storeShoppingCart.cartItems)].quantity +=1;
         }
-        else{
+        else {
             const item = storeProducts.products[storeShoppingCart.findProductIndex(id, storeProducts.products)];
             storeShoppingCart.cartItems.push({id: item.id, name: item.name, price: item.price, quantity: 1});
         }

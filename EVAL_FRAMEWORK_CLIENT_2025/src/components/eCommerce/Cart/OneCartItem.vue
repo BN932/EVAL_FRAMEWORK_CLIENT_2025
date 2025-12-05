@@ -2,12 +2,13 @@
   const props = defineProps({
         item: Object,
     });
+    const imgUrl = 'https://picsum.photos/300/200/?random='+ props.item.id;
 </script>
 <template>
     <li class="flex justify-between items-center py-3">
               <div class="flex items-center">
                 <img
-                  src="https://picsum.photos/300/200/?random={{ item.id }}"
+                  :src="imgUrl"
                   alt="Product"
                   class="h-12 w-12 rounded-full mr-4"
                 />
