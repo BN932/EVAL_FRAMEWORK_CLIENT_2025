@@ -15,11 +15,10 @@
               </div>
               <!--Shipping-->
               <div class="flex justify-between items-center my-8">
-                <span><strong>Livraison:</strong></span>
+                <span><strong>Choisissez la livraison:</strong></span>
                 <select class="form-select py-1 px-2 block w-full rounded border border-gray-300 ml-2"
                 v-model.number="storeShoppingCart.deliveryCost"
                 >
-                  <option value="0" disabled>Option de livraison</option>
                   <option value="5" >Standard - €5</option>
                   <option value="15">Express - €15</option>
                 </select>

@@ -3,7 +3,7 @@ import { storeProducts } from "./storeProducts";
 export const storeShoppingCart = reactive({
     cartItems: reactive([]),
     //--------Area for the calculation of the costs
-    deliveryCost: ref(0),
+    deliveryCost: ref(5),
     //Calculation of the subtotal
     subTotal: computed(()=>{return Number((storeShoppingCart.cartItems.reduce
         ((sum, item)=> sum + (Number(item.price)*item.quantity), 0)).toFixed(2))}),
