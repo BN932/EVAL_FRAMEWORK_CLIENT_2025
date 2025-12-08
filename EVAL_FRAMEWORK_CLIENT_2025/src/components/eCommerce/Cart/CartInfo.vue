@@ -1,5 +1,6 @@
 <script setup>
   import { storeShoppingCart } from '@/services/storeShoppingCart.js';
+  import actionButton from '@/components/ui/ActionButton.vue';
 </script>
 <template>
   <div class="p-6">
@@ -28,11 +29,9 @@
                 <span><strong>Total Général:</strong></span>
                 <span>€{{ storeShoppingCart.total }}</span>
               </div>
-              <button
-                class="mt-4 w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cart-btn"
-              >
-                Procéder au paiement
-              </button>
+              <actionButton :action="'Order'" >
+                <slot name="actionButton">Procéder au paiement</slot>
+              </actionButton>
   </div>
 </template>
 <style scoped></style>
